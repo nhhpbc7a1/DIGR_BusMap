@@ -19,8 +19,60 @@
 </head>
 
 <body>
-        {{{body}}}
-        
+    <div class="container mt-5">
+        <form action="/find" method="post">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Chọn địa điểm</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="">Trạm xuất phát</label>
+                                <select class="js-example-basic-single form-control" name="id_start">
+                                    {{#each ds_tram}}
+                                    <option value="{{id}}" {{#ifEquals id ../id_start}} selected {{/ifEquals}}>
+                                        {{name}}
+                                    </option>
+
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="">Trạm kết thúc</label>
+                                <select class="js-example-basic-single form-control" name="id_end">
+                                    {{#each ds_tram}}
+                                    <option value="{{id}}" {{#ifEquals id ../id_end}} selected {{/ifEquals}}>
+                                        {{name}}
+                                    </option>
+
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="submit" class="btn btn-primary">Tìm đường</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-header">
+                <h4>Kết quả</h4>
+            </div>
+            <div class="card-body">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -31,6 +83,11 @@
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
 
     {{{_sections.js}}}
 </body>

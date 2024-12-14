@@ -1,19 +1,68 @@
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <select class="js-example-basic-single" name="state">
-                <option value="AL">Alabama</option>
-                ...
-                <option value="WY">Wyoming</option>
-            </select>
+{{#section 'css'}}
+<style>
+    .chuyen_xe {
+        display: flex;
+        align-items: center;
+    }
+
+    .ma_tuyen {
+        padding: 12px;
+        border-radius: 50%;
+        background-color: #34b67a;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 500;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tu_den {
+        text-align: center;
+    }
+
+    .tu_den>div {
+        font-weight: 500;
+        font-size: 24px;
+    }
+
+    .title {
+        background-color: #34b67a;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        padding: 5px 0;
+    }
+    hr {
+        margin: 0;
+    }
+</style>
+{{/section}}
+
+
+<div>
+    {{#each answers}}
+    <div class="title">
+        <h5>Cách di chuyển:</h5>
+    </div>
+    <hr>
+    {{#each this}}
+    <div class="row chuyen_xe">
+        <div class="col-4 d-flex justify-content-center">
+            <div class="ma_tuyen">{{xe_buyt}}</div>
+        </div>
+        <div class="tu_den col-4">
+            <span>Từ trạm</span>
+            <div>{{tram}}</div>
+        </div>
+        <div class="tu_den col-4">
+            <span>Đến trạm</span>
+            <div>{{noi_den}}</div>
         </div>
     </div>
+    <hr>
+    {{/each}}
+    {{/each}}
 </div>
-
-{{#section 'js'}}
-<script>
-    $(document).ready(function () {
-        $('.js-example-basic-single').select2();
-    });
-</script>
-{{/section }}

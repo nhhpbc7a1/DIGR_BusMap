@@ -18,7 +18,7 @@ bool visited[N];
 
 vector <ChuyenXe> ds_ke[N];
 
-void dfs(int u, int ma_tram_dich){
+string dfs(int u, int ma_tram_dich){
     if (u == ma_tram_dich) {
         stack <ChuyenXe> st;
         int tam = ma_tram_dich;
@@ -29,29 +29,48 @@ void dfs(int u, int ma_tram_dich){
             tam = tr[tam].ma_tram_ke_tiep;
         }
 
-        cout << "\n== Cach di ===\n" ;
+        // Tạo chuỗi JSON để lưu trữ kết quả
+        string result = "[";
+        bool first = true;
+
         while (!st.empty()) {
             ChuyenXe x = st.top();
-            cout << ds_ten_tram[x.ma_tram_ke_tiep] << endl;
-            if (x.ma_tuyen != 0) cout << "Len xe buyt so: " << x.ma_tuyen << " ==> Di den: " << endl;
             st.pop();
+
+            if (x.ma_tuyen != 0) {
+                if (!first) {
+                    result += ",";
+                }
+
+                result += "{";
+                result += "\"tram\": \"" + ds_ten_tram[x.ma_tram_ke_tiep] + "\"";
+                    result += ", \"xe_buyt\": " + to_string(x.ma_tuyen);
+                    result += ", \"noi_den\": \"" + ds_ten_tram[st.top().ma_tram_ke_tiep] + "\"";
+                result += "}";
+            }
+                first = false;
         }
-        return;
+
+        result += "],";
+        return result;
     }
 
     visited[u] = true;
+    string tmp = "";
     for (int i = 0;  i < ds_ke[u].size(); i++) {
         ChuyenXe x = ds_ke[u][i];
         if (!visited[x.ma_tram_ke_tiep]) {
             tr[x.ma_tram_ke_tiep] = {u, x.ma_tuyen};
-            dfs(x.ma_tram_ke_tiep, ma_tram_dich);
+            tmp += dfs(x.ma_tram_ke_tiep, ma_tram_dich);
         }
     }
     visited[u] = false;
+    return tmp;
 }
 
 void doc_du_lieu() {
-    ifstream infile("danhsach.txt");
+    ifstream infile("ds_tuyen.txt");
+
 
     infile >> n;
     for (int i = 1; i <= n; i++) {
@@ -67,7 +86,6 @@ void doc_du_lieu() {
                 ds_ten_tram[count_tram] = ten_tram;
             }
 
-
             int ma_tram_hien_tai = ma_tram[ten_tram];
 
             if (j > 1) {
@@ -81,20 +99,34 @@ void doc_du_lieu() {
         //cout << endl;
     }
 
-    for (int i = 1; i <= count_tram; i++) {
-        cout << "ID: " << i << ", Name: " << ds_ten_tram[i] << endl;
-    }
-    cout << endl;
+    // for (int i = 1; i <= count_tram; i++) {
+    //     cout << "ID: " << i << ", Name: " << ds_ten_tram[i] << endl;
+    // }
+    // cout << endl;
 
     infile.close();
+
+    ofstream outfile("ds_tram.json");
+    outfile << "[" << endl;
+    for (int i = 1; i <= count_tram; i++) {
+        outfile << "{\"id\":" << i << ", \"name\": \""<< ds_ten_tram[i] << "\"}";
+        if (i != count_tram) outfile << ",";
+        outfile << endl;
+    }
+    outfile << "]" << endl;
+    outfile.close();
 }
 int main() {
     doc_du_lieu();
     int start_id, end_id;
-    cout << "Nhap ma tram dau: ";
+    // cout << "Nhap ma tram dau: ";
     cin >> start_id;
-    cout << "Nhap ma tram dich: ";
+    // cout << "Nhap ma tram dich: ";
     cin >> end_id;
 
-    dfs(start_id, end_id);
+    string result = dfs(start_id, end_id);
+    if (result[result.length() - 1] == ',') 
+        result.erase(result.length() - 1, 1);
+    cout << "{ \"answers\":[" << result << "]}" << endl;
+    return 0;
 }
