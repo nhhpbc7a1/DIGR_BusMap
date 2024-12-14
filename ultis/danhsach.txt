@@ -1,0 +1,58 @@
+60
+1 2 ben_thanh bx_cho_lon
+2 2 ben_thanh bx_mien_tay
+3 2 ben_thanh thanh_loc
+4 3 ben_thanh cong_hoa an_suong
+5 2 ben_xe_cho_lon bien_hoa
+6 2 ben_xe_cho_lon dai_hoc_nong_lam
+7 2 ben_xe_cho_lon go_vap
+8 2 ben_xe_quan_8 dai_hoc_quoc_gia
+9 3 cho_lon binh_chanh hung_long
+10 2 dai_hoc_quoc_gia bx_mien_tay
+11 3 dam_sen ben_thanh thao_dien
+12 2 ben_thanh thac_giang_dien
+13 2 cong_vien_23_9 ben_xe_cu_chi
+14 3 mien_dong 3_thang_2 mien_tay
+15 2 ben_phu_dinh dam_sen
+16 2 ben_xe_cho_lon ben_xe_tan_phu
+17 3 ben_xe_cho_lon dh_sai_gon kcx_tan_thuan
+18 2 ben_thanh cho_hiep_thanh
+19 3 ben_thanh khu_che_xuat_linh_trung dai_hoc_quoc_gia
+20 2 ben_thanh nha_be
+22 2 ben_xe_quan_8 kcn_le_minh_xuan
+23 3 ben_xe_cho_lon nga_3_giong cau_lon
+24 2 ben_xe_mien_dong hoc_mon
+25 2 ben_xe_quan_8 khu_dan_cu_vinh_loc_a
+27 3 ben_thanh u_co an_suong
+28 2 ben_thanh cho_xuan_thoi_thuong
+29 2 ben_pha_cat_lai cho_nong_san_thu_duc
+30 2 cho_tan_huong dai_hoc_quoc_te
+31 3 khu_dan_cu_tan_quy ben_thanh khu_dan_cu_binh_loi
+32 2 bx_mien_tay bx_nga_tu_ga
+33 3 bx_an_suong suoi_tien dai_hoc_quoc_gia
+34 2 ben_thanh dai_hoc_cong_nghe_sai_gon
+36 2 ben_thanh thoi_an
+37 2 cang_quan_4 nhon_duc
+38 2 kdc_tan_quy dam_sen
+39 3 ben_thanh vo_van_kiet bx_mien_tay
+40 2 bx_mien_dong bx_nga_tu_ga
+41 3 bx_mien_tay nga_tu_bon_xa bx_an_suong
+42 2 cho_cau_muoi cho_nong_san_thu_duc
+43 2 bx_mien_dong pha_cat_lai
+44 2 cang_quan_4 binh_quoi
+45 3 bx_quan_8 ben_thanh bx_mien_dong
+46 3 cang_quan_4 ben_thanh ben_me_coc
+47 3 bx_cho_lon quoc_lo_50 hung_long
+48 2 bx_tan_phu cho_hiep_thanh
+49 2 san_bay_tan_son_nhat quan_1
+50 2 dh_bach_khoa dh_quoc_gia
+51 2 bx_mien_dong binh_hung_hoa
+52 2 ben_thanh dai_hoc_quoc_te
+53 2 le_hong_phong dh_quoc_gia
+54 2 bx_mien_dong bx_cho_lon
+55 2 cong_vien_phan_mem_quang_trung khu_cong_nghe_cao_q9
+56 2 bx_cho_lon dh_giao_thong_van_tai
+57 2 cho_phuoc_binh truong_thpt_hiep_binh
+58 2 bx_nga_4_ga khu_cong_nghiep_dong_nam
+59 2 bx_quan_8 bx_nga_4_ga
+60 2 bx_an_suong kcn_le_minh_xuan

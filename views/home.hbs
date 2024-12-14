@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <select class="js-example-basic-single" name="state">
+                <option value="AL">Alabama</option>
+                ...
+                <option value="WY">Wyoming</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+{{#section 'js'}}
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+{{/section }}
